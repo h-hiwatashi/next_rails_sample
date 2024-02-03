@@ -1,4 +1,4 @@
-FROM --platform=linux/x86_64 ruby:3.1.2
+FROM ruby:3.1.2
 RUN apt-get update -qq && apt-get install -y vim
 
 RUN mkdir /myapp
