@@ -1,0 +1,24 @@
+import { Button } from '@mui/material'
+import type { NextPage } from 'next'
+
+const HelloMui: NextPage = () => {
+  return (
+    <>
+      <Button variant="outlined">Hello Mui@v5!</Button>
+      <Button
+        variant="contained"
+        sx={{
+          p: 6,
+          ml: 2,
+          mt: 3,
+          color: { xs: 'white', md: 'red' },
+          textTransform: 'none',
+        }}
+      >
+        Hello Mui@v5!
+      </Button>
+    </>
+  )
+}
+
+export default HelloMui
