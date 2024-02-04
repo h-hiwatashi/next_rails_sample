@@ -1,4 +1,4 @@
-# next_rails_sample-
+# next_rails_sample
 Next(ts) & Railsのサンプルアプリ
 
 ## Docker command
