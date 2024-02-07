@@ -5,6 +5,10 @@ Rails.application.routes.draw do
       get "health_check", to: "health_check#index"
       # User に対するルーティングをapi/v1配下へ
       mount_devise_token_auth_for "User", at: "auth"
+
+      namespace :current do
+        resource :user, only: [:show]
+      end
     end
   end
 end
