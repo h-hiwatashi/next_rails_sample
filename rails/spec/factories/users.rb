@@ -1,8 +1,10 @@
+# rspec内でusersレコードを生成する際のデフォルト設定を定義するファイル
 FactoryBot.define do
   factory :user do
-    name { "田中太郎" }
-    sequence(:email) {|n| "#{n}_" + "test@example.com" }
-    password { "password" }
+    # Fakerのコマンドを使用
+    name { Faker::Name.name }
+    sequence(:email) {|n| "#{n}_" + Faker::Internet.email }
+    password { Faker::Internet.password(min_length: 10) }
     confirmed_at { Time.current }
   end
 end

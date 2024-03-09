@@ -1,3 +1,4 @@
+### セッションエラーの回避用
 module DeviseHackFakeSession
   extend ActiveSupport::Concern
 
