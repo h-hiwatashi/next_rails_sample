@@ -7,4 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   include DeviseTokenAuth::Concerns::User
+
+  # 1対多, userが削除されたら子も削除
+  has_many :articles, dependent: :destroy
 end
