@@ -30,6 +30,12 @@ ja:
         content: 本文
     models:
       user: ユーザー
+  enums:
+    article:
+      status:
+        unsaved: 未保存
+        draft: 下書き
+        published: 公開中
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
