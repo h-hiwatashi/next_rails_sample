@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       # サインインユーザーの情報を取得するアクション
       namespace :current do
         resource :user, only: [:show]
+        resources :articles, only: [:create]
       end
       resources :articles, only: [:index, :show]
     end
