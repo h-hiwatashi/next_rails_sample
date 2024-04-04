@@ -17,6 +17,9 @@ rails s -b '0.0.0.0'
 npm run dev
 ```
 
+### mail
+http://localhost:3000/letter_opener
+
 ## css開発方針
 - 原則、sxプロパティでスタイル定義を行う。
 - 複数の React コンポーネントで共通利用することが想定される一部スタイルのみ、emotionを利用する。
