@@ -1,5 +1,6 @@
 import { Box, Grid, Container } from '@mui/material'
 import camelcaseKeys from 'camelcase-keys'
+// Next.js のページコンポーネントの型定義
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import useSWR from 'swr'
@@ -20,7 +21,12 @@ type ArticleProps = {
 const Index: NextPage = () => {
   const url = 'http://localhost:3000/api/v1/articles'
 
-  // useSWRのGET
+  /*
+    useSWRのGET
+    RailsAPI からの articls レコードの取得
+    useSWR を使用するために、
+    import useSWR from 'swr'とimport { fetcher } from '@/utils'が必要
+  */
   const { data, error } = useSWR(url, fetcher)
   if (error) return <div>An error has occurred.</div>
   if (!data) return <div>Loading...</div>
