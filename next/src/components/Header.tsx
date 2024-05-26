@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 const Header = () => {
   return (
+    // ヘッダー用
     <AppBar
       position="static"
       sx={{

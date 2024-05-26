@@ -3,6 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 import { AppProps } from 'next/app'
 import * as React from 'react'
+// リセットcssを設定
 import '@/styles/destyle.css'
 import Header from '@/components/Header'
 
