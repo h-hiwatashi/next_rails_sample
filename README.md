@@ -22,5 +22,8 @@ npm run dev
 - 複数の React コンポーネントで共通利用することが想定される一部スタイルのみ、emotionを利用する。
 
 ## NextのAPI関連ライブラリ
-GETのときはSWR
-POST, PATHC, DELETEのときはaxios
+- GETのときはSWR
+- POST, PATHC, DELETEのときはaxios
+
+## APIの動作確認
+chrome-extension://aejoelaoggembcahagimdiliamlcdmfm/index.html#requests
