@@ -1,8 +1,10 @@
-import { Box, Grid, Container } from '@mui/material'
+import { Box, Grid, Container, Pagination } from '@mui/material'
 import camelcaseKeys from 'camelcase-keys'
 // Next.js のページコンポーネントの型定義
 import type { NextPage } from 'next'
 import Link from 'next/link'
+// ページ遷移を行う関数
+import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import ArticleCard from '@/components/ArticleCard'
 import Error from '@/components/Error'
@@ -21,7 +23,9 @@ type ArticleProps = {
 }
 // 記事一覧ページ
 const Index: NextPage = () => {
-  const url = process.env.NEXT_PUBLIC_API_BASE_URL + '/articles'
+  const router = useRouter()
+  const page = 'page' in router.query ? Number(router.query.page) : 1
+  const url = process.env.NEXT_PUBLIC_API_BASE_URL + '/articles/?page=' + page
 
   /*
     useSWRのGET
@@ -36,6 +40,12 @@ const Index: NextPage = () => {
 
   // キャメルケースになったJSONとしてarticlesに格納
   const articles = camelcaseKeys(data.articles)
+  const meta = camelcaseKeys(data.meta)
+
+  // クリックされたページ番号をvalueとして受け取り、その値をクエリーパラメーターpageに含めて上で、記事一覧ページ（/）に遷移
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    router.push('/?page=' + value)
+  }
 
   return (
     // MUI
@@ -57,7 +67,14 @@ const Index: NextPage = () => {
               </Link>
             </Grid>
           ))}
-        </Grid>
+        </Grid>{' '}
+        <Box sx={{ display: 'flex', justifyContent: 'center', py: 6 }}>
+          <Pagination
+            count={meta.totalPages}
+            page={meta.currentPage}
+            onChange={handleChange}
+          />
+        </Box>
       </Container>
     </Box>
   )
