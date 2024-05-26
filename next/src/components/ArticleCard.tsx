@@ -14,7 +14,9 @@ const ArticleCard = (props: ArticleCardProps) => {
   return (
     <Card>
       <CardContent>
+        {/* テキストの制御を行えるコンポーネント */}
         <Typography
+          // 配下のテキストをh3タグとして展開
           component="h3"
           sx={{
             mb: 2,

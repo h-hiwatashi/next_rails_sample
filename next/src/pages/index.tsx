@@ -17,7 +17,7 @@ type ArticleProps = {
     name: string
   }
 }
-
+// 記事一覧ページ
 const Index: NextPage = () => {
   const url = 'http://localhost:3000/api/v1/articles'
 
@@ -39,10 +39,12 @@ const Index: NextPage = () => {
     <Box css={styles.pageMinHeight} sx={{ backgroundColor: '#e6f2ff' }}>
       {/* maxWidthプロパティにブレイクポイントを指定 */}
       {/* sx={{ pt: 6 }}は、padding-top: '48px' */}
+      {/* <Conatiner>要素の最大幅をmd(=900px) */}
       <Container maxWidth="md" sx={{ pt: 6 }}>
         <Grid container spacing={4}>
           {articles.map((article: ArticleProps, i: number) => (
             <Grid key={i} item xs={12} md={6}>
+              {/* 配下のJSXにリンクを付与 */}
               <Link href={'/articles/' + article.id}>
                 <ArticleCard
                   title={article.title}
